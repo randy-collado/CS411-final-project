@@ -11,4 +11,4 @@ Other Technologies:
 1. Database: mongoDB (through pymongo)
 2. Styling: Tailwind???
 
-Mid-semester deliverable: A working front-page with login capabilities, user persistence, and partial integration with the APIs
+Mid-semester deliverable: A working application with login capabilities, user persistence, and partial integration with the APIs
