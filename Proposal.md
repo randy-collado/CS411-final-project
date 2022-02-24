@@ -6,6 +6,6 @@ Proposal: Our team has decided to develop a digital multimedia library where use
 APIs to be used: Spotify API, Google Maps API
 Frameworks: React (Frontend) and Flask (Backend) ***Backend might change, this is for development, planning for a plug-and-play architecture***
 Other Technologies:
-	- Database: mongoDB (through pymongo)
-	- Styling: Tailwind???
+	1. Database: mongoDB (through pymongo)
+	2. Styling: Tailwind???
 Mid-semester deliverable: A working front-page with login capabilities, user persistence, and partial integration with the APIs
