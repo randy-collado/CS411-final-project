@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import Header from './components/Header';
 import Home from './components/Home';
 import LoginPage from './components/LoginPage';
+import RegisterPage from './components/RegisterPage';
 import "tailwindcss/tailwind.css"
 
 ReactDOM.render(
@@ -15,9 +16,9 @@ ReactDOM.render(
       <Routes>
         <Route path="/" element={ <Home /> } />
         <Route path="/login" element={ <LoginPage/> } />
+        <Route path="/register" element={ <RegisterPage/> } />
       </Routes>
     </Router>
-    {/* <App/> */}
   </React.StrictMode>,
   document.getElementById('root')
 );

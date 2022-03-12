@@ -26,8 +26,8 @@ export default function Navigation() {
                 </NavLink>
               </li>
               <li className="nav-item">
-                <NavLink className="nav-link" to="/blog">
-                  Blog
+                <NavLink className="nav-link" to="/register">
+                  Register
                 </NavLink>
               </li>
             </ul>

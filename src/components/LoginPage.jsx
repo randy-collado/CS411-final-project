@@ -9,7 +9,7 @@ function LoginPage(props){
             <div class="flex flex-col mb-4">
             <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" >
                 Username:
-                <input class="border py-2 px-3 text-grey-darkest" type="text" name="name" />
+                <input class="border py-2 px-3 text-grey-darkest" type="text" name="username" />
             </label>
             </div>
             <div class="flex flex-col mb-4">
