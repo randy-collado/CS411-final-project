@@ -1,7 +1,7 @@
 import { Wrapper } from "@googlemaps/react-wrapper";
 import React from 'react';
 
-const API_KEY = 'AIzaSyA1XA4R97H1KN3I8RSOVf0hVJZgcBmuJLY';
+const API_KEY = '';
 
 const render = (status) => {
     return <h1>{status}</h1>;
