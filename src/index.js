@@ -7,16 +7,20 @@ import Header from './components/Header';
 import Home from './components/Home';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
+import { ImportImage } from './components/InsertImage';
+
 import "tailwindcss/tailwind.css"
+import { HomePage } from './components/HomePage';
 
 ReactDOM.render(
   <React.StrictMode>
     <Router>
-      <Header />
       <Routes>
         <Route path="/" element={ <Home /> } />
         <Route path="/login" element={ <LoginPage/> } />
         <Route path="/register" element={ <RegisterPage/> } />
+        <Route path="/home" element={ <HomePage/> } />
+        <Route path="/addDiary" element={ <ImportImage/> } />
       </Routes>
     </Router>
   </React.StrictMode>,

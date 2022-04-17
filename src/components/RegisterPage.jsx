@@ -1,10 +1,37 @@
 import { React } from "react";
+import { createUser } from "../controllers/user";
 import "tailwindcss/tailwind.css"
+import { Header } from "./Header";
+import { authSpotify } from "../controllers/spotifyContext";
 function RegisterPage(props){
+
+    const register = (event) =>
+    {
+        event.preventDefault();
+        const username = event.currentTarget.elements.username.value;
+        const password = event.currentTarget.elements.password.value;
+        const email = event.currentTarget.elements.email.value;
+        const response = createUser(username, password, email);
+        response.then(response => {
+            if (response.data.ecode === 0) console.log(response.data.username)
+            else window.location.replace('/');
+        });
+
+        const token = authSpotify(username);
+        token.then((response) => {
+            if(response.data.ecode === 0){
+                sessionStorage.setItem('user', username);
+                window.location.replace('/home?user='+username);
+            }
+        });
+
+    };
+
     return (
         <>
+        <Header displayHome={true}/>
         <div>
-            <form class="mb-6" method="post" action='/register'>
+            <form class="mb-6" method="post" onSubmit={register}>
             <div class="flex flex-col mb-4">
             <label class="mb-2 uppercase font-bold text-lg text-grey-darkest" >
                 Email:
