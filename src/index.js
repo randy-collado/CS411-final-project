@@ -7,7 +7,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import LoginPage from './components/LoginPage';
 import RegisterPage from './components/RegisterPage';
-import { ImportImage } from './components/InsertImage';
+import { ImportImage } from './components/ImportImage';
 
 import "tailwindcss/tailwind.css"
 import { HomePage } from './components/HomePage';

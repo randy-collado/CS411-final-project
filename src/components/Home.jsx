@@ -7,7 +7,7 @@ import { Header } from "./Header.jsx";
 function Home() {
   return (
     <>
-    <Header displayHome={true} displayLogout={false} displayRegister={true}/>
+    <Header displayHome={true} displaySubmit={true} displayLogout={false} displayRegister={true}/>
     <div className="home">
       <div className="container">
         <div className="row align-items-center my-5">

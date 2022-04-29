@@ -2,7 +2,7 @@ import { React } from "react";
 import { createUser } from "../controllers/user";
 import "tailwindcss/tailwind.css"
 import { Header } from "./Header";
-import { authSpotify } from "../controllers/spotifyContext";
+import { authSpotify, authSpotify2 } from "../controllers/spotifyContext";
 function RegisterPage(props){
 
     const register = (event) =>
@@ -13,17 +13,20 @@ function RegisterPage(props){
         const email = event.currentTarget.elements.email.value;
         const response = createUser(username, password, email);
         response.then(response => {
-            if (response.data.ecode === 0) console.log(response.data.username)
-            else window.location.replace('/');
-        });
-
-        const token = authSpotify(username);
-        token.then((response) => {
-            if(response.data.ecode === 0){
-                sessionStorage.setItem('user', username);
-                window.location.replace('/home?user='+username);
+            if (response.data.ecode !== 0) {
+                window.location.replace('/');
             }
         });
+        authSpotify2(username);
+
+        // const token = authSpotify(username);
+        // console.log(token)
+        // token.then((response) => {
+        //     if(response.data.ecode === 0){
+        //         sessionStorage.setItem('user', username);
+        //         window.location.replace('/home?user='+username);
+        //     }
+        // });
 
     };
 

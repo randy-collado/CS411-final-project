@@ -22,7 +22,8 @@ export function Header(props) {
   }
 
   function LoginLink(){
-    if (props.displayLogin){
+
+    if (props.displayLogin === true){
       <li className="nav-item">
         <LoginButton isLoggedIn={false}/>
       </li>
@@ -58,12 +59,13 @@ export function Header(props) {
       </li>
       </>
       );
-    } else if (props.displayRegister === false && (sessionStorage.getItem('user') && sessionStorage.getItem('user') == query.get("user"))){
+    } else if (props.displaySubmit === true && (sessionStorage.getItem('user') && sessionStorage.getItem('user') == query.get("user"))){
+      const diary_endpoint = "/addDiary?user=" + query.get("user");
       return (
         <>
         <li className="nav-item">
-          <NavLink className="nav-link" to="/register">
-            Home
+          <NavLink className="nav-link" to={diary_endpoint}>
+            Add Diary
           </NavLink>
         </li>
         </>
