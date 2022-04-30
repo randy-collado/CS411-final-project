@@ -21,6 +21,7 @@ class TOKEN_SCHEMA(Schema):
     
 class DIARY_SCHEMA(Schema):
     username = fields.Str(required=True)
+    src = fields.Raw(required=True)
     diary_id = fields.Int(required=True)
     text = fields.Str(required=True)
     location = fields.Str(required=True)

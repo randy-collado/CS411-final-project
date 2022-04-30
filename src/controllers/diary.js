@@ -23,7 +23,7 @@ export function getDiaries(username){
 
 function constructDiary(username, img, caption, location, song){
 
-  const diary = { username: username, src: img, id: id_counter++, text: caption, song: song, location: location };  
+  const diary = { username: username, src: img, diary_id: id_counter++, text: caption, song: song, location: location };  
   return diary;
 }
 

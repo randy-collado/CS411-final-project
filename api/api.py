@@ -56,13 +56,14 @@ def next_step():
 
 @api.route('/api/addDiaries', methods=["POST"])
 def addDiaries():
+    result = None
     try:
-        request_data = request.data
-        print(request_data)
+        request_data = request.form
         result = DIARY_SCHEMA().load(request_data)
+        print(result)
     except ValidationError as err:
         return {'ecode': 1, 'message': err.messages}
-    db['diaries'].insert_one(result)
+    db.diaries.insert_one(result)
     return {'ecode': 0, 'message': 'ok'}
 
 
@@ -82,12 +83,12 @@ def getDiaries():
     #return [diary for diary in db['diaries'].find({'username': args['user']})]
 
 @api.route('/api/getDiariesDB', methods=["GET"])
+@cross_origin()
 def getDiariesFromDB():
     username = request.args['user']
-    diaries = db["diaries"]
-    dump = diaries.find({'id': 0})
-    print(list(dump))
-    return ""#json.dumps(list(dump))
+    diaries = db.diaries
+    dump = diaries.find({'username': username}, {'_id': 0})
+    return {'diaries': list(dump)}
 
 @api.route('/api/storeToken', methods=['POST'])
 def store_tokens():
