@@ -4,7 +4,7 @@ import axios from "axios";
 
     Urled_location = Urdlencoded.location//suppose this change the location into url
 
-    var geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${Urled_location}&key=AIzaSyCwFJBPV94njxx4CgTsyn7ZW0kaWRX1YDA`
+    var geocodeUrl = `https://maps.googleapis.com/maps/api/geocode/json?address=${Urled_location}&key=${G_API_key}`
     //the url to access geocode api4
      var Pinpoint_response = Promise.reject("Malformed token");//is this cluaster just for handling unexpected result?
      if (location){
