@@ -13,13 +13,18 @@ interface ImagePaginationProps {
   pages: {
     src: string,
     text: string,
+    id: number,
+    location: string,
+
   }[],
   dotDisplay: boolean,
+  onNext: Function
 }
 
 export const ImagePagination = ({
   pages,
   dotDisplay = true,
+  onNext
 }: ImagePaginationProps) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [activeButton, setActiveButton] = useState(false);
@@ -32,6 +37,7 @@ export const ImagePagination = ({
     } else if (type === 'next' && activeIndex !== pages.length - 1) {
       setActiveIndex(activeIndex => activeIndex + 1);
     }
+    onNext(pages[activeIndex]);
   }, [pages, activeIndex, setActiveIndex]);
   const onMouseEnter = useCallback((e: React.MouseEvent) => {
     e.preventDefault();

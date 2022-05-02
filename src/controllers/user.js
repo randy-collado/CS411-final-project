@@ -1,10 +1,11 @@
-import axios from 'axios'
+import axios from 'axios';
+import { base_endpoint } from '../endpoints/endpoints.js';
 
 export function createUser(username, password, email) {
   /** Here you need to validate user input. 
    Let's say only Name and email are required field
  */
-  const backendURL = 'http://192.168.4.40:5000/api/register';
+  const backendURL = base_endpoint + '/api/register';
   if (username && email && password) { 
 
     return axios.post(backendURL, {
@@ -27,7 +28,7 @@ export function deleteUser(req, res, next){
 }
 
 export function loginUser(username, password){
-  const backendURL = 'http://192.168.4.40:5000/api/login';
+  const backendURL = base_endpoint + '/api/login';
   if (username && password) { 
 
     return axios.post(backendURL, {

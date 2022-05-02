@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import { resolvePath } from "react-router-dom";
+import { base_endpoint } from "../endpoints/endpoints.js"
+
 
 let id_counter = 0
 
 export function getDiaries(username){
 
-    const backendURL = 'http://192.168.4.40:5000/api/getDiaries?user=';
+    const backendURL = base_endpoint+'/api/getDiaries?user=';
     if (username) { 
     const response =  axios.get(backendURL + username, {
       headers:
@@ -28,10 +28,11 @@ function constructDiary(username, img, caption, location, song){
 }
 
 export async function uploadDiary(username, img, caption, location, song){
-
+  const image_type = img.type;
   const base64_img = await file_to_b64(img);
+  const img_str = base64_img;
 
-  const diary = constructDiary(username, base64_img, caption, location, song);
+  const diary = constructDiary(username, img_str, caption, location, song);
   const response = await addDiary(diary);
   return response;
 
@@ -48,7 +49,7 @@ function file_to_b64(img){
 }
 
 export function addDiary(diary){
-  const backendURL = 'http://192.168.4.40:5000/api/addDiaries'
+  const backendURL = base_endpoint + '/api/addDiaries'
   if (diary){
     const response = axios.post(backendURL, diary, {
       headers:
@@ -57,7 +58,7 @@ export function addDiary(diary){
           'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS'
         }
     });
-    return response.data;
+    return response;
     // isValidEmail is some custom email function to validate email which you might need write on your own or use npm module
   }
     return Promise.reject();

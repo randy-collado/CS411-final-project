@@ -39,7 +39,7 @@ export const Img = styled.img`
   height:500px;
   width: 500px;
   display: block;
-  margin-left: auto;
+  margin-left: 400px;
   margin-right: auto;
 `;
 
@@ -52,6 +52,7 @@ export const PrevNext = styled.a`
   margin-top: -22px;
   color: white;
   font-weight: bold;
+  margin-left: 400px;
   font-size: 18px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;

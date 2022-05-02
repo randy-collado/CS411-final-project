@@ -49,7 +49,6 @@ def next_step():
     response = requests.post('https://accounts.spotify.com/api/token', data={'grant_type': "authorization_code", 'code': args.get('code'), 'redirect_uri': redirect_url}, headers={'Content-Type': "application/x-www-form-urlencoded", 'Authorization': auth_string})
     response = response.json()
     tok_response = requests.post('http://192.168.4.40:5000/api/storeToken', data=response)
-    print(tok_response.text)
     if tok_response.json()['ecode'] == 0:
         return redirect('http://localhost:3000')
     return redirect('http://localhost:3000/register')
@@ -74,8 +73,9 @@ def addDiaries():
 def getDiariesFromDB():
     username = request.args['user']
     diaries = db.diaries
-    dump = diaries.find({'username': username}, {'_id': 0})
-    return {'diaries': list(dump)}
+    dump = diaries.find({'username': username}, {'_id': 0, 'username': 0})
+    output = {'diaries': list(dump)}
+    return output
 
 @api.route('/api/storeToken', methods=['POST'])
 def store_tokens():
@@ -93,6 +93,11 @@ def store_tokens():
     user_token['scope'] = result['scope']
     user_token_db.insert_one(user_token)
     return {'ecode': 0, 'error': 'ok'}
+
+@api.route('/api/getToken', methods=['GET'])
+def get_token():
+    return db.spotify_tokens.find_one({}, {'_id': 0})
+
 
 @api.route('/api/time')
 def get_current_time():
