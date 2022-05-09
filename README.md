@@ -2,8 +2,12 @@
 
 This web application served as my group's Final Project for CS411: Software Engineering. 
 
-Frontend Framework: ReactJS
-Backend Framework: Flask
-Database: MongoDB (via flask_pymongo)
-Styling: Pure CSS/Tailwind
-Authentication: Hand-rolled
+- Frontend Framework: ReactJS
+
+- Backend Framework: Flask
+
+- Database: MongoDB (via flask_pymongo)
+ 
+- Styling: Pure CSS/Tailwind
+ 
+- Authentication: Hand-rolled
